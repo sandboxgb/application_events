@@ -16,6 +16,14 @@ class SuccessAppEvent extends ApplicationEvent {
   SuccessAppEvent({required String message}) : super(message: message);
 }
 
+class InfoAppEvent extends ApplicationEvent {
+  InfoAppEvent({required String message}) : super(message: message);
+}
+
+class WarningAppEvent extends ApplicationEvent {
+  WarningAppEvent({required String message}) : super(message: message);
+}
+
 class ActionEvent extends ApplicationEvent {
   final String source;
   final String action;
@@ -36,6 +44,14 @@ class ApplicationEvents {
 
   static void fireError({required String message}) {
     fire(ErrorAppEvent(message: message));
+  }
+
+  static void fireInfo({required String message}) {
+    fire(InfoAppEvent(message: message));
+  }
+
+  static void fireWarning({required String message}) {
+    fire(WarningAppEvent(message: message));
   }
 
   static void fireAction(
